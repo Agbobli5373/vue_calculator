@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue Js|Permutation Calculator</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="description" content="Vue Js|Permutation,combination and factorial Calculator">
+    <meta name="author" content="Isaac Ayuba">
+    <meta name="keywords" content="Vue Js|Permutation,combination ,factorial , mathematics Calculator">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Monoton|VT323|Wallpoet" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      [v-cloak]{
+  display: none ; 
+ }
+    </style>
+
+
+    
+	<script  src="vue.js"></script>
+	
+</head>
+<body>
+
+	<div id="app">
+		<div class="container">
+			<div class="well well-lg alert-success " id="hd">
+                <h4 style="text-align: center;" >PERMUTATION AND COMBINATION CALCULATOR </h4>
+       </div>
+            <div v-if="!submitted" class="well well-lg alert-success " id="hero">
+              <form   class="mt-5" >
+				<div  class="form-group">
+					<label for="email">N</label>
+					<input type="number" name="n" v-model="n" class="form-control form-control-lg">
+				</div>
+				<div  class="form-group">
+					<label for="email">R</label>
+					<input type="number" name="r" v-model="r"  class="form-control form-control-lg">
+					
+				</div>
+				<button type="submit" @click.prevent=display class="btn btn-primary">Calculate</button>
+            </form>
+            </div>
+            <div v-if= "submitted"  v-cloak id="table" > 
+            	<h1 class="mt-5" ></h1>
+            
+			  <div class="mt-5" id="ta" >
+				<table class="table table-boardered table-striped table-hover ">
+                    <tr>
+                        <th>Title</th>
+                        <th>Answers</th>
+
+                    </tr>
+				        <tr>
+                        <td>FACTORIAL(n!)</td>
+                        <td>{{fact}}</td>
+                    </tr>
+                    <tr >
+                        <td>FACTORIAL(r!)</td>
+                        <td>{{numbr}}</td>
+                    </tr>
+                    <tr>
+                        <td>PERMUTATION(nPr)</td>
+                        <td>{{per}}</td>
+                   </tr>
+                   <tr>
+                        <td>COMBINATION (nCr)</td>
+                        <td>{{comb}}</td>
+                  </tr>
+				</table>
+			</div>
+			<button type="submit" @click.prevent=proces class="btn btn-primary">Back</button>
+            </div>
+			
+                  
+        </div>
+
+        <div class="footer fixed-bottom  well well-lg alert-success" id="footer">
+            
+            <div>
+                <a href="https://facebook.com/isaac.agbobli.14" class="fa fa-facebook"></a>
+                <a href="https://facebook.com/isaac.agbobli.14" class="fa fa-twitter"></a>
+                <a href="https://wa.me/233540218724" target="_blank" class="fa fa-whatsapp"></a>
+            </div>
+            
+                  <p>Developed by Isaac Ayuba</p>   
+                
+            </div>
+         
+      </div>
+        
+		
+	</div>
+
+</body>
+  
+
+<script >
+ var vm = new Vue({
+       el:'#app',
+       data:{
+          n : '1',
+          r : '1',
+          numbr : '',
+          fact : '',
+          per : '',
+          comb : '',
+          submitted : false,
+          messege : 'Thank you',
+       },
+
+       methods:{
+
+       	process :function() {
+       		// body...
+       	   
+       	},
+       	proces :function() {
+       		// body...
+       	   this.submitted = false;
+       	},
+
+       factorial : function(a){
+           var fac = 1 ;
+           if (fac == 1) {
+               for (let index = 1; index <=a; index++) {
+                   fac = fac * index ;
+                   
+               }
+               
+           }
+           return fac ;
+       },
+      
+      permitation : function () {
+          return this.factorial(this.n) / (this.factorial(this.n-this.r));
+      },
+      combination : function () {
+          return this.factorial(this.n) / ( this.factorial(this.r) * (this.factorial(this.n-this.r)));
+      },
+      f : function () {
+          return this.factorial(this.n) ;
+      },
+
+      display : function () {
+          this.submitted = true;
+          this.fact = this.factorial(this.n);
+          this.per = this.permitation();
+          this.comb = this.combination();
+          this.numbr =this.factorial(this.r);
+          
+         
+      },
+       }
+
+	});
+</script>
+
+</html>

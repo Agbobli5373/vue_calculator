@@ -1,0 +1,48 @@
+ body{
+     background-color: hsl(226, 66%, 75%);
+
+ }
+ [v-cloak]{
+  display: none ; 
+ }
+#hero{
+  background-color: rgba(3, 44, 3, 0.336); 
+  padding-left: 20px; 
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+}
+ 
+ #footer,#hd{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(3, 44, 3, 0.336);
+
+}
+
+#ta{
+    background-color: rgba(3, 44, 3, 0.336);
+    color: rgb(13, 59, 57);
+    
+  border-radius: 15px;
+}
+
+.fa {
+    padding: 8px;
+    font-size: 22px;
+    width: 22px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+  }
+  #footer {
+    background-color: rgba(3, 44, 3, 0.336);
+    margin-top:15px; 
+    text-align: center;
+  }
+  
+  .footer-container a:link, .footer-container a:visited, .footer-container a:hover, .footer-container a:active {
+    text-decoration: none;
+    
+  }  
